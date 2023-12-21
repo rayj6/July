@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+p {
+    font-family: "Istok Web", sans-serif;
+}
+
+.HomeContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #040116;
+}
+
+.MainBox {
+    width: 40vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 2vw;
+    padding-left: 3vw;
+
+    /* background-color: #ccc; */
+}
+
+#TopBar {
+    width: 100%;
+    height: 5vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* background-color: aliceblue; */
+}
+
+#logout {
+    cursor: pointer;
+    width: 20%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+
+    /* background-color: aqua; */
+}
+
+#logout p {
+    margin-right: 10%;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+#logout img {
+    position: relative;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+
+    width: 20%;
+    height: auto;
+}
+
+#selectLanguage {
+    margin-left: 5%;
+    background-color: #000;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-size: 14px;
+}
+
+#Main {
+    width: 100%;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* background-color: yellowgreen; */
+}
+
+#decor1 {
+    position: relative;
+    margin-bottom: calc(100vw / -50);
+    width: 70%;
+    height: 5vw;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#decor2 {
+    position: relative;
+    width: 70%;
+    height: 5vw;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#title {
+    color: #fff;
+    font-weight: 700;
+    font-size: calc(100vw / 70);
+}
+
+#username {
+    color: #fff;
+    font-weight: 400;
+    font-size: calc(100vw / 70);
+}
+
+#Main img {
+    position: relative;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+
+    width: 100%;
+    height: auto;
+}
+
+#microphone {
+    cursor: pointer;
+    width: calc(100vw / 30);
+    height: calc(100vw / 30);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: calc(100vw / 2);
+}
+
+#microphone img {
+    position: relative;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+
+    width: 60%;
+    height: auto;
+}
+
+.FunctionBox {
+    width: 60vw;
+    height: 100vh;
+
+    /* background-color: red; */
+}
