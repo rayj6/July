@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
 
-p {
+* {
     font-family: "Istok Web", sans-serif;
 }
 
@@ -66,7 +66,7 @@ p {
     margin-right: 10%;
     color: #fff;
     font-weight: 400;
-    font-size: 14px;
+    font-size: calc(100vw / 100);
 }
 
 #logout img {
@@ -89,7 +89,7 @@ p {
     color: #fff;
     outline: none;
     border: none;
-    font-size: 14px;
+    font-size: calc(100vw / 100);
 }
 
 #Main {
@@ -181,5 +181,98 @@ p {
     width: 60vw;
     height: 100vh;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     /* background-color: red; */
+}
+
+#CommandContainer {
+    position: relative;
+
+    width: 90%;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 20px;
+    background: #67729d;
+}
+
+#SampleCommandBox {
+    margin-top: 3%;
+    width: 95%;
+    height: 80%;
+
+    /* border: 1px solid black; */
+}
+
+#CommandBar {
+    position: absolute;
+    bottom: 2%;
+
+    width: 95%;
+    max-height: 20%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#InputCommand {
+    position: relative;
+    margin-left: 3%;
+    overflow-y: hidden;
+    resize: none;
+    outline: none;
+
+    width: 80%;
+    min-height: fit-content;
+    max-height: 90%;
+
+    text-align: left;
+
+    font-size: calc(100vw / 100);
+
+    border: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+#InputCommand::placeholder {
+    color: #ffffff4f;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+#SendButton {
+    cursor: pointer;
+
+    margin-right: 1%;
+    width: 10%;
+    height: calc(100vw / 40);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: calc(100vw / 80);
+    border: none;
+    background-color: #67729d;
+}
+
+#SendButton img {
+    width: 40%;
+    height: auto;
 }
