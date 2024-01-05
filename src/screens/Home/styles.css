@@ -92,6 +92,15 @@
     font-size: calc(100vw / 100);
 }
 
+#selectMode {
+    margin-left: 5%;
+    background-color: #000;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-size: calc(100vw / 100);
+}
+
 #Main {
     width: 100%;
     height: 90vh;
@@ -207,8 +216,33 @@
     margin-top: 3%;
     width: 95%;
     height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     /* border: 1px solid black; */
+}
+
+#CommandTitle {
+    width: 90%;
+    color: #fff;
+    font-size: calc(100vw / 90);
+}
+
+#SampleBox {
+    width: fit-content;
+    height: fit-content;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    grid-gap: calc(100vw / 30); /* Adjust the gap between items as needed */
+}
+
+#Boxes {
+    width: calc(100vw / 5);
+    height: calc(100vw / 8);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.17);
 }
 
 #CommandBar {
@@ -275,4 +309,17 @@
 #SendButton img {
     width: 40%;
     height: auto;
+}
+
+#NotePlace {
+    margin-top: 5%;
+    width: 90%;
+    height: 80%;
+
+    outline: none;
+    background-color: transparent;
+    border: none;
+
+    color: #fff;
+    font-size: calc(100vw / 100);
 }
