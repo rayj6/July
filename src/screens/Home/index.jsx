@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -75,7 +76,13 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript }) => {
     return (
         <div className="MainBox">
             <div id="TopBar">
-                <button id="logout">
+                <button
+                    id="logout"
+                    onClick={() => {
+                        Cookies.remove("userid");
+                        window.location.href = "/login";
+                    }}
+                >
                     <p>Log out</p>
                     <img alt="" src={require("../../assets/logout.png")} />
                 </button>
@@ -145,6 +152,17 @@ const NoteBox = ({ content }) => {
 const Index = () => {
     const [CurrentMode, setCurrentMode] = useState("Assistant");
     const [transcript, setTranscript] = useState("");
+
+    useEffect(() => {
+        const myCookieValue = Cookies.get("userid");
+
+        if (myCookieValue) {
+            console.log(`Value of myCookie: ${myCookieValue}`);
+        } else {
+            console.log("myCookie not found");
+            window.location.href = "/login";
+        }
+    }, []);
 
     return (
         <div className="HomeContainer">
