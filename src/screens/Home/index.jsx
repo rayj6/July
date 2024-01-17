@@ -90,6 +90,7 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript }) => {
                     <option value="Assistant">Assistant</option>
                     <option value="TakeNote">Take note</option>
                 </select>
+                <button id="ToJulyPro">JULY PRO</button>
             </div>
             <div id="Main">
                 <div id="decor1">

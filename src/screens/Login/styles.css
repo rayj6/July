@@ -1,0 +1,130 @@
+.Container {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+
+    display: flex;
+    flex-direction: row;
+    background-color: #040116;
+}
+
+.LogoContainer {
+    width: 65%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+.LogoContainer img {
+    width: 30%;
+    height: auto;
+}
+
+.AuthContainer {
+    width: 35%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(82, 87, 107, 0.6);
+}
+
+#Title {
+    margin-top: 25%;
+    font-size: calc(100vw / 50);
+    font-weight: 700;
+    color: #fff;
+}
+
+#SubTitle {
+    margin-top: -5%;
+    font-size: 25px;
+    font-weight: 300;
+    color: #fff;
+}
+
+#Input1 {
+    margin-top: 15%;
+    width: 70%;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#Input1 input {
+    width: 95%;
+    padding: 1%;
+    font-size: calc(100vw / 100);
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#Input1 input::placeholder {
+    color: rgba(255, 255, 255, 0.48);
+}
+
+#Input2 {
+    margin-top: 5%;
+    width: 70%;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#Input2 input {
+    width: 95%;
+    padding: 1%;
+    font-size: calc(100vw / 100);
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#Input2 input::placeholder {
+    color: rgba(255, 255, 255, 0.48);
+}
+
+#SupportPart {
+    margin-top: 15%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#SupportPart p {
+    font-size: calc(100vw / 100);
+    font-weight: 300;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: underline;
+}
+
+#AuthBtn {
+    cursor: pointer;
+    width: 70%;
+    padding: 1%;
+    border-radius: 10px;
+    background: #4e96d8;
+    color: #fff;
+    font-size: calc(100vw / 100);
+    outline: none;
+    border: none;
+}

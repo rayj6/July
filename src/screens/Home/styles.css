@@ -354,3 +354,14 @@
     letter-spacing: 10;
     /* background-color: #fff; */
 }
+
+#ToJulyPro {
+    cursor: pointer;
+    margin-left: 5%;
+    width: calc(100vw / 12);
+    height: fit-content;
+    border: none;
+    border-radius: 2px;
+    font-size: calc(100vw / 100);
+    background-color: rgb(138, 187, 255);
+}
