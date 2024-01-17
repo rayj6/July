@@ -11,7 +11,9 @@ recognition.lang = "vi-VN";
 async function sendDataToServer(question, setResponse) {
     try {
         const response = await axios.post("http://localhost:3300/botchat", {
+            userid: "testId",
             question: `Take note and organize information, anwser in the same language with the content: ${question}`,
+            // question: `${question}`,
         });
         console.log("Server response:", response.data);
         setResponse(response.data);
@@ -23,6 +25,7 @@ async function sendDataToServer(question, setResponse) {
 const MainBox = ({ CurrentMode, setCurrentMode, setTranscript }) => {
     const [isListening, setIsListening] = useState(false);
     const [shouldContinue, setShouldContinue] = useState(false);
+    const [AiImage, setAiImage] = useState("AIAnimation");
 
     useEffect(() => {
         recognition.onstart = () => {
@@ -56,11 +59,13 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript }) => {
     const startListening = () => {
         setShouldContinue(true);
         recognition.start();
+        setAiImage("AIAnimation2");
     };
 
     const stopListening = () => {
         setShouldContinue(false);
         recognition.stop();
+        setAiImage("AIAnimation");
     };
 
     const handleModeChange = (event) => {
@@ -94,7 +99,7 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript }) => {
                 <div id="decor2">
                     <p id="title">HOW CAN I ASSIST YOU TODAY</p>
                 </div>
-                <img alt="" src={require("../../assets/AI.gif")} />
+                <img id={AiImage} alt="" src={require("../../assets/AI.gif")} />
                 <button id="microphone" onClick={isListening ? stopListening : startListening}>
                     <img alt="" src={require("../../assets/microphone.png")} />
                 </button>
@@ -132,12 +137,6 @@ const NoteBox = ({ content }) => {
         <div className="FunctionBox">
             <div id="CommandContainer">
                 <textarea id="NotePlace" readOnly value={content} />
-                <div id="CommandBar">
-                    <textarea placeholder="Your command..." id="InputCommand" name="text"></textarea>
-                    <button id="SendButton">
-                        <img alt="" src={require("../../assets/send.png")} />
-                    </button>
-                </div>
             </div>
         </div>
     );

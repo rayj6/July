@@ -143,8 +143,19 @@
     font-weight: 400;
     font-size: calc(100vw / 70);
 }
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
-#Main img {
+#AIAnimation {
     position: relative;
 
     -webkit-user-drag: none;
@@ -156,6 +167,23 @@
 
     width: 100%;
     height: auto;
+    /* animation: zoomInOut 800ms infinite; */
+}
+
+#AIAnimation2 {
+    position: relative;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+
+    width: 100%;
+    height: auto;
+
+    animation: zoomInOut 900ms infinite;
 }
 
 #microphone {
@@ -314,12 +342,15 @@
 #NotePlace {
     margin-top: 5%;
     width: 90%;
-    height: 80%;
+    height: 90%;
 
     outline: none;
     background-color: transparent;
     border: none;
+    resize: none;
 
     color: #fff;
-    font-size: calc(100vw / 100);
+    font-size: calc(100vw / 80);
+    letter-spacing: 10;
+    /* background-color: #fff; */
 }
