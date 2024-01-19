@@ -7,10 +7,10 @@ const Index = () => {
             <p id="Title">RECOVERY</p>
             <p id="SubTitle">Provide information to recover your account</p>
             <div id="Input1">
-                <input type="text" placeholder="Email | Phone number" />
+                <input type="text" placeholder="Username ( your nickname )" />
             </div>
             <div id="Input2">
-                <input type="password" placeholder="Most recent password" />
+                <input type="password" placeholder="Email | Phone number" />
             </div>
             <div id="SupportPart">
                 <p onClick={() => (window.location.href = "/login")}>Already have an account</p>

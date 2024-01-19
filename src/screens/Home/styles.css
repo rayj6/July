@@ -365,3 +365,46 @@
     font-size: calc(100vw / 100);
     background-color: rgb(138, 187, 255);
 }
+
+.UpgradeBox {
+    width: 60vw;
+    height: 60vh;
+    border-radius: 20px;
+    background: rgba(78, 150, 216, 0.2);
+}
+
+#TitleContainer {
+    width: 100%;
+    height: 10%;
+    margin-top: 1%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #fff; */
+}
+
+#TitleContainer p {
+    margin-left: 2%;
+    color: #fff;
+    font-weight: 700;
+    font-size: calc(100vw / 60);
+}
+
+#TitleContainer button {
+    cursor: pointer;
+    margin-right: 2%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+#TitleContainer img {
+    width: 90%;
+    height: auto;
+}

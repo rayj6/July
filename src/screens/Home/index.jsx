@@ -23,7 +23,7 @@ async function sendDataToServer(question, setResponse) {
     }
 }
 
-const MainBox = ({ CurrentMode, setCurrentMode, setTranscript }) => {
+const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus }) => {
     const [isListening, setIsListening] = useState(false);
     const [shouldContinue, setShouldContinue] = useState(false);
     const [AiImage, setAiImage] = useState("AIAnimation");
@@ -95,9 +95,12 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript }) => {
                 </select>
                 <select id="selectMode" name="selectedOption" onChange={handleModeChange} value={CurrentMode}>
                     <option value="Assistant">Assistant</option>
+                    <option value="HealthAssistant">Health assistant</option>
                     <option value="TakeNote">Take note</option>
                 </select>
-                <button id="ToJulyPro">JULY PRO</button>
+                <button id="ToJulyPro" onClick={() => setUpgradeStatus(true)}>
+                    JULY PRO
+                </button>
             </div>
             <div id="Main">
                 <div id="decor1">
@@ -152,6 +155,7 @@ const NoteBox = ({ content }) => {
 const Index = () => {
     const [CurrentMode, setCurrentMode] = useState("Assistant");
     const [transcript, setTranscript] = useState("");
+    const [UpgradeStatus, setUpgradeStatus] = useState(false);
 
     useEffect(() => {
         const myCookieValue = Cookies.get("userid");
@@ -164,12 +168,27 @@ const Index = () => {
         }
     }, []);
 
-    return (
-        <div className="HomeContainer">
-            <MainBox CurrentMode={CurrentMode} setCurrentMode={setCurrentMode} setTranscript={setTranscript} />
-            {CurrentMode === "Assistant" ? <FunctionBox /> : <NoteBox content={transcript} />}
-        </div>
-    );
+    if (UpgradeStatus === false) {
+        return (
+            <div className="HomeContainer">
+                <MainBox CurrentMode={CurrentMode} setUpgradeStatus={setUpgradeStatus} setCurrentMode={setCurrentMode} setTranscript={setTranscript} />
+                {CurrentMode === "Assistant" ? <FunctionBox /> : <NoteBox content={transcript} />}
+            </div>
+        );
+    } else {
+        return (
+            <div className="HomeContainer">
+                <div className="UpgradeBox">
+                    <div id="TitleContainer">
+                        <p>UPGRADE YOUR PLAN</p>
+                        <button onClick={() => setUpgradeStatus(false)}>
+                            <img src={require("../../assets/exit.png")} alt="" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 };
 
 export default Index;
