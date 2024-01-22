@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import axios from "axios";
 import Cookies from "js-cookie";
+import GetInformation from "../../components/GetInformation";
 
 export default function Index() {
     const [email, setEmail] = useState("");
@@ -24,7 +25,19 @@ export default function Index() {
             <div className="LogoContainer">
                 <img src={require("../../assets/favicon.png")} alt="" />
             </div>
-            <div className="AuthContainer">
+            <GetInformation
+                title={"LOGIN"}
+                subtitle={"To continue your journey"}
+                FunctionName={"LOGIN"}
+                MainFunction={sendDataToServer}
+                placeholder1={"Email | Phone number"}
+                placeholder2={"Password"}
+                setData1={setEmail}
+                setData2={setPassword}
+                support1={"recovery"}
+                support2={"register"}
+            />
+            {/* <div className="AuthContainer">
                 <p id="Title">LOGIN</p>
                 <p id="SubTitle">To continue your journey</p>
                 <div id="Input1">
@@ -40,7 +53,7 @@ export default function Index() {
                 <button id="AuthBtn" onClick={() => sendDataToServer()}>
                     LOGIN
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 }

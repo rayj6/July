@@ -1,0 +1,85 @@
+.GetInfoContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+}
+
+.GetInfoContainer #Title {
+    margin-top: 10%;
+    font-size: calc(100vw / 50);
+}
+
+.GetInfoContainer #SubTitle {
+    margin-top: -1%;
+}
+
+.GetInfoContainer #Input1 {
+    margin-top: 5%;
+    width: 30%;
+    font-size: calc(100vw / 90);
+    border: none;
+}
+
+.GetInfoContainer #Input1 input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: calc(100vw / 90);
+    text-align: center;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.GetInfoContainer #InputContainer {
+    margin-top: 2cqi;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    /* background-color: aliceblue; */
+}
+
+.GetInfoContainer #InputContainer input {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: calc(100vw / 90);
+    text-align: center;
+    border-radius: 10px;
+    padding: 2%;
+
+    outline: none;
+}
+
+#Age {
+    width: 20%;
+}
+
+#Gender {
+    width: 20%;
+}
+
+#Nationality {
+    width: 35%;
+}
+.GetInfoContainer #SupportPart {
+    margin-top: 6%;
+
+    width: 30%;
+}
+
+.GetInfoContainer #AuthBtn {
+    width: 30%;
+}
