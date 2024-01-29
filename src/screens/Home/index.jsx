@@ -7,14 +7,11 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const recognition = new SpeechRecognition();
 recognition.continuous = true;
 
-recognition.lang = "vi-VN";
-
 async function sendDataToServer(question, setResponse) {
     try {
         const response = await axios.post("http://localhost:3300/botchat", {
             userid: "testId",
-            question: `Take note and organize information, anwser in the same language with the content: ${question}`,
-            // question: `${question}`,
+            question: `${question}`,
         });
         console.log("Server response:", response.data);
         setResponse(response.data);
@@ -27,6 +24,9 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus,
     const [isListening, setIsListening] = useState(false);
     const [shouldContinue, setShouldContinue] = useState(false);
     const [AiImage, setAiImage] = useState("AIAnimation");
+    const [Language, setLanguage] = useState("vi-VN");
+
+    recognition.lang = Language;
 
     useEffect(() => {
         recognition.onstart = () => {
@@ -73,6 +73,22 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus,
         setCurrentMode(event.target.value);
     };
 
+    function handleChangeLanguage(event) {
+        let value = event.target.value;
+
+        if (value === "English") {
+            setLanguage("en-US");
+        } else if (value === "Japanese") {
+            setLanguage("ja-JP");
+        } else if (value === "Korean") {
+            setLanguage("ko-KR");
+        } else if (value === "Vietnamese") {
+            setLanguage("vi-VN");
+        } else if (value === "Chinese") {
+            setLanguage("zh-CN");
+        }
+    }
+
     function TopBar() {
         return (
             <div id="TopBar">
@@ -86,7 +102,7 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus,
                     <p>Log out</p>
                     <img alt="" src={require("../../assets/logout.png")} />
                 </button>
-                <select id="selectLanguage" name="selectedOption">
+                <select id="selectLanguage" name="selectedOption" onChange={handleChangeLanguage}>
                     <option value="English">English</option>
                     <option value="Japanese">Japanese</option>
                     <option value="Korean">Korean</option>
@@ -108,7 +124,6 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus,
     function AssistantBox() {
         return (
             <div className="AssistantContainer">
-                <div id="SideBar"></div>
                 <div id="MainAssistant">
                     <div id="AssistantDecor">
                         <img alt="" src={require("../../assets/AI.gif")} />
@@ -125,9 +140,25 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus,
         );
     }
 
+    function HealthBox() {
+        return (
+            <div className="HomeContainer">
+                <div className="UpgradeBox">
+                    <div id="TitleContainer">
+                        <p></p>
+                        <button onClick={() => setCurrentMode("Assistant")}>
+                            <img src={require("../../assets/exit.png")} alt="" />
+                        </button>
+                    </div>
+                    <p id="TestBanner">Function under development, please try again later</p>
+                </div>
+            </div>
+        );
+    }
+
     function TakeNoteBox() {
         return (
-            <>
+            <div id="TakeNoteContainer">
                 <div id="Main">
                     <div id="decor1">
                         <p id="title">WELCOME&nbsp;&nbsp;</p>
@@ -142,38 +173,14 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus,
                     </button>
                 </div>
                 <NoteBox content={transcript} />
-            </>
+            </div>
         );
     }
 
     return (
         <div className="MainBox">
             <TopBar />
-            {CurrentMode === "Assistant" ? <AssistantBox /> : CurrentMode === "TakeNote" ? <TakeNoteBox /> : <div></div>}
-        </div>
-    );
-};
-
-const FunctionBox = () => {
-    return (
-        <div className="FunctionBox">
-            <div id="CommandContainer">
-                <div id="SampleCommandBox">
-                    <p id="CommandTitle">Commands</p>
-                    <div id="SampleBox">
-                        <div id="Boxes"></div>
-                        <div id="Boxes"></div>
-                        <div id="Boxes"></div>
-                        <div id="Boxes"></div>
-                    </div>
-                </div>
-                <div id="CommandBar">
-                    <textarea placeholder="Your command..." id="InputCommand" name="text"></textarea>
-                    <button id="SendButton">
-                        <img alt="" src={require("../../assets/send.png")} />
-                    </button>
-                </div>
-            </div>
+            {CurrentMode === "Assistant" ? <AssistantBox /> : CurrentMode === "TakeNote" ? <TakeNoteBox /> : CurrentMode === "Health" ? <HealthBox /> : <></>}
         </div>
     );
 };

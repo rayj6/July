@@ -103,8 +103,15 @@
     font-size: calc(100vw / 100);
 }
 
+#TakeNoteContainer {
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+}
+
 #Main {
-    width: 100%;
+    width: 40vw;
     height: 90vh;
 
     display: flex;
@@ -218,7 +225,7 @@
 
 .FunctionBox {
     width: 60vw;
-    height: 100vh;
+    height: 90vh;
 
     display: flex;
     flex-direction: column;
@@ -372,7 +379,15 @@
     width: 60vw;
     height: 60vh;
     border-radius: 20px;
-    /* background: rgba(78, 150, 216, 0.2); */
+    background: rgba(78, 150, 216, 0.2);
+}
+
+#TestBanner {
+    width: 100%;
+    margin-top: 15%;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
 }
 
 #TitleContainer {
@@ -388,7 +403,9 @@
 }
 
 #TitleContainer p {
+    user-select: none;
     color: #fff;
+    margin-left: 2%;
     font-weight: 700;
     font-size: calc(100vw / 60);
 }
@@ -416,20 +433,26 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    /* align-items: center; */
+    justify-content: center;
+    align-items: center;
 }
 
 #SideBar {
     width: 20vw;
-    height: 93vh;
+    height: 85vh;
+
+    border-radius: 10px;
+    margin-left: 20px;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
 
     background-color: #67729d;
 }
 
 #MainAssistant {
     width: 80vw;
-    height: 93vh;
+    height: 90vh;
 
     display: flex;
     flex-direction: column;
