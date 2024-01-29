@@ -12,6 +12,7 @@ export default function Index() {
         try {
             console.log(email + password);
             const response = await axios.post("http://localhost:3300/authentication/login", { email: email, password: password });
+
             console.log("Server response:", response.data);
             window.location.href = "/app/" + response.data;
             Cookies.set("userid", response.data, { expires: 365, path: "/" });
@@ -37,23 +38,6 @@ export default function Index() {
                 support1={"recovery"}
                 support2={"register"}
             />
-            {/* <div className="AuthContainer">
-                <p id="Title">LOGIN</p>
-                <p id="SubTitle">To continue your journey</p>
-                <div id="Input1">
-                    <input type="text" placeholder="Email | Phone number" defaultValue={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div id="Input2">
-                    <input type="password" placeholder="Password" defaultValue={password} onChange={(e) => setPassword(e.target.value)} />
-                </div>
-                <div id="SupportPart">
-                    <p onClick={() => (window.location.href = "/recovery")}>Forgot password?</p>
-                    <p onClick={() => (window.location.href = "/register")}>Don't have an account</p>
-                </div>
-                <button id="AuthBtn" onClick={() => sendDataToServer()}>
-                    LOGIN
-                </button>
-            </div> */}
         </div>
     );
 }

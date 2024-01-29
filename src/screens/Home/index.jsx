@@ -23,7 +23,7 @@ async function sendDataToServer(question, setResponse) {
     }
 }
 
-const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus }) => {
+const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus, transcript }) => {
     const [isListening, setIsListening] = useState(false);
     const [shouldContinue, setShouldContinue] = useState(false);
     const [AiImage, setAiImage] = useState("AIAnimation");
@@ -73,8 +73,8 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus 
         setCurrentMode(event.target.value);
     };
 
-    return (
-        <div className="MainBox">
+    function TopBar() {
+        return (
             <div id="TopBar">
                 <button
                     id="logout"
@@ -95,26 +95,61 @@ const MainBox = ({ CurrentMode, setCurrentMode, setTranscript, setUpgradeStatus 
                 </select>
                 <select id="selectMode" name="selectedOption" onChange={handleModeChange} value={CurrentMode}>
                     <option value="Assistant">Assistant</option>
-                    <option value="HealthAssistant">Health assistant</option>
+                    <option value="Health">Health</option>
                     <option value="TakeNote">Take note</option>
                 </select>
                 <button id="ToJulyPro" onClick={() => setUpgradeStatus(true)}>
                     JULY PRO
                 </button>
             </div>
-            <div id="Main">
-                <div id="decor1">
-                    <p id="title">WELCOME&nbsp;&nbsp;</p>
-                    <p id="username">username</p>
+        );
+    }
+
+    function AssistantBox() {
+        return (
+            <div className="AssistantContainer">
+                <div id="SideBar"></div>
+                <div id="MainAssistant">
+                    <div id="AssistantDecor">
+                        <img alt="" src={require("../../assets/AI.gif")} />
+                        <p>How can I help you today ?</p>
+                    </div>
+                    <div id="AssistantCommandBar">
+                        <textarea placeholder="Your command..." id="AssistantInputCommand" name="text"></textarea>
+                        <button id="AssistantSendButton">
+                            <img alt="" src={require("../../assets/send.png")} />
+                        </button>
+                    </div>
                 </div>
-                <div id="decor2">
-                    <p id="title">HOW CAN I ASSIST YOU TODAY</p>
-                </div>
-                <img id={AiImage} alt="" src={require("../../assets/AI.gif")} />
-                <button id="microphone" onClick={isListening ? stopListening : startListening}>
-                    <img alt="" src={require("../../assets/microphone.png")} />
-                </button>
             </div>
+        );
+    }
+
+    function TakeNoteBox() {
+        return (
+            <>
+                <div id="Main">
+                    <div id="decor1">
+                        <p id="title">WELCOME&nbsp;&nbsp;</p>
+                        <p id="username">username</p>
+                    </div>
+                    <div id="decor2">
+                        <p id="title">HOW CAN I ASSIST YOU TODAY</p>
+                    </div>
+                    <img id={AiImage} alt="" src={require("../../assets/AI.gif")} />
+                    <button id="microphone" onClick={isListening ? stopListening : startListening}>
+                        <img alt="" src={require("../../assets/microphone.png")} />
+                    </button>
+                </div>
+                <NoteBox content={transcript} />
+            </>
+        );
+    }
+
+    return (
+        <div className="MainBox">
+            <TopBar />
+            {CurrentMode === "Assistant" ? <AssistantBox /> : CurrentMode === "TakeNote" ? <TakeNoteBox /> : <div></div>}
         </div>
     );
 };
@@ -152,6 +187,7 @@ const NoteBox = ({ content }) => {
         </div>
     );
 };
+
 const Index = () => {
     const [CurrentMode, setCurrentMode] = useState("Assistant");
     const [transcript, setTranscript] = useState("");
@@ -171,8 +207,13 @@ const Index = () => {
     if (UpgradeStatus === false) {
         return (
             <div className="HomeContainer">
-                <MainBox CurrentMode={CurrentMode} setUpgradeStatus={setUpgradeStatus} setCurrentMode={setCurrentMode} setTranscript={setTranscript} />
-                {CurrentMode === "Assistant" ? <FunctionBox /> : <NoteBox content={transcript} />}
+                <MainBox
+                    CurrentMode={CurrentMode}
+                    setUpgradeStatus={setUpgradeStatus}
+                    setCurrentMode={setCurrentMode}
+                    setTranscript={setTranscript}
+                    transcript={transcript}
+                />
             </div>
         );
     } else {

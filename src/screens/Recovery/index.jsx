@@ -25,7 +25,10 @@ function VerifyPassword({ sendDataToServer, email }) {
                 <p onClick={() => (window.location.href = "/login")}>Already have an account</p>
                 <p onClick={() => (window.location.href = "/register")}>Don't have an account</p>
             </div>
-            <button id="AuthBtn" onClick={() => sendDataToServer("/recovery/changePassword", { email: email, newPassword: newPassword }, setConfirm)}>
+            <button
+                id="AuthBtn"
+                onClick={() => sendDataToServer("/recovery/changePassword", { email: email, password: password, newPassword: newPassword }, setConfirm)}
+            >
                 RECOVER
             </button>
         </div>
@@ -44,6 +47,8 @@ const Index = () => {
             if (response.data !== "Internal server error") {
                 alert(response.data);
                 confirm(true);
+            } else {
+                alert("Please recheck your information");
             }
         } catch (error) {
             console.error("Error sending data to server:", error);

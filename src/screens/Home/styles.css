@@ -23,14 +23,14 @@
 }
 
 .MainBox {
-    width: 40vw;
+    width: 100vw;
     height: 100vh;
 
     display: flex;
     flex-direction: column;
 
     padding-top: 2vw;
-    padding-left: 3vw;
+    /* padding-left: 3vw; */
 
     /* background-color: #ccc; */
 }
@@ -48,8 +48,10 @@
 }
 
 #logout {
+    margin-left: 15px;
+    margin-bottom: 3px;
     cursor: pointer;
-    width: 20%;
+    width: 100px;
     height: 100%;
 
     display: flex;
@@ -63,7 +65,7 @@
 }
 
 #logout p {
-    margin-right: 10%;
+    margin-right: 10px;
     color: #fff;
     font-weight: 400;
     font-size: calc(100vw / 100);
@@ -84,7 +86,7 @@
 }
 
 #selectLanguage {
-    margin-left: 5%;
+    margin-left: 20px;
     background-color: #000;
     color: #fff;
     outline: none;
@@ -93,7 +95,7 @@
 }
 
 #selectMode {
-    margin-left: 5%;
+    margin-left: 20px;
     background-color: #000;
     color: #fff;
     outline: none;
@@ -370,7 +372,7 @@
     width: 60vw;
     height: 60vh;
     border-radius: 20px;
-    background: rgba(78, 150, 216, 0.2);
+    /* background: rgba(78, 150, 216, 0.2); */
 }
 
 #TitleContainer {
@@ -386,7 +388,6 @@
 }
 
 #TitleContainer p {
-    margin-left: 2%;
     color: #fff;
     font-weight: 700;
     font-size: calc(100vw / 60);
@@ -406,5 +407,135 @@
 
 #TitleContainer img {
     width: 90%;
+    height: auto;
+}
+
+.AssistantContainer {
+    width: 100vw;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+#SideBar {
+    width: 20vw;
+    height: 93vh;
+
+    background-color: #67729d;
+}
+
+#MainAssistant {
+    width: 80vw;
+    height: 93vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* background: rgba(4, 1, 22, 0.37); */
+    /* background-color: red; */
+}
+
+#AssistantDecor {
+    position: relative;
+    width: 25vw;
+    height: 25vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: #fff; */
+}
+
+#AssistantDecor img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+
+    width: 90%;
+    height: auto;
+}
+
+#AssistantDecor p {
+    position: absolute;
+    bottom: 0;
+
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+#AssistantCommandBar {
+    position: absolute;
+    bottom: 2%;
+
+    width: 50vw;
+    max-height: 5vh;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#AssistantInputCommand {
+    position: relative;
+    margin-left: 3%;
+    overflow-y: hidden;
+    resize: none;
+    outline: none;
+
+    width: 80%;
+    min-height: fit-content;
+    max-height: 90%;
+
+    text-align: left;
+
+    font-size: calc(100vw / 100);
+
+    border: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+#AssistantInputCommand::placeholder {
+    color: #ffffff4f;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+#AssistantSendButton {
+    cursor: pointer;
+
+    margin-right: 1%;
+    width: 10%;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: calc(100vw / 80);
+    border: none;
+    background-color: #67729d;
+}
+
+#AssistantSendButton img {
+    width: 40%;
     height: auto;
 }
